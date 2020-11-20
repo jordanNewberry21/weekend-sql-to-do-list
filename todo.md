@@ -37,24 +37,24 @@
 
 - [] CLIENT
     - [x] source in jQuery
-    - [] readyNow function
-        - [] this is where I will put my click handlers for:
-            - [] Task submit button
-            - [] Task complete button
-            - [] Task delete button
-    - [] getTask function:
-        - [] ajax GET route
-        - [] after data grab from db call render function
-        - [] call this function inside readyNow to load data on page start
+    - [x] readyNow function
+        - [x] this is where I will put my click handlers for:
+            - [x] Task submit button
+            - [x] Task complete button
+            - [x] Task delete button
+    - [x] getTask function:
+        - [x] ajax GET route
+        - [x] after data grab from db call render function
+        - [x] call this function inside readyNow to load data on page start
     - [] Render function:
-        - [] calls data array as parameter
-        - [] array goes into a for loop
-        - [] for loop appends the task data to my html table
-            - [] this should also dynamically append to each task
-                - [] a DELETE button
-                - [] a COMPLETE button
+        - [x] calls data array as parameter
+        - [x] array goes into a for loop
+        - [x] for loop appends the task data to my html table
+            - [x] this should also dynamically append to each task
+                - [x] a DELETE button
+                - [x] a COMPLETE button
     - [] handleTask? function:
-        - [] connected to submit Task button
+        - [x] connected to submit Task button
         - [] grabs the string from the task input field
         - [] store it in an object with two values:
             - [] the string task itself

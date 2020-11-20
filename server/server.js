@@ -7,13 +7,12 @@ const bodyParser = require('body-parser');
 const taskRouter = require('./routes/task.router.js')
 
 // bring in routes
-app.use('/task', taskRouter)
 
 // Telling bodyParser how to parse in data from client
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 // Serve back static files by default
+app.use('/task', taskRouter)
 app.use(express.static('server/public'));
 
 

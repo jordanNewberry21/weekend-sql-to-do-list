@@ -19,11 +19,34 @@ function deleteTask() {
 function handleSubmit(event) {
     event.preventDefault();
     console.log('in submit task button');
+    let task = {
+        task: $('#taskString').val(),
+        task_completed: false
+    }; // creating new task object
+    // task.task = $('#taskString').val();
+    // task.task_completed = false;
+
+    addToTaskList(task);
+}
+
+function addToTaskList(taskToAdd) {
+    console.log('checking out my task....', taskToAdd);
+    $.ajax({
+        method: 'POST',
+        url: '/task',
+        data: taskToAdd
+    }).then(function (response) {
+        console.log('response from server', response);
+        getTaskList();
+    }).catch(function (error) {
+        console.log('Error in POST', error)
+        alert('Unable to add task at this time. Please try again later.');
+      });
 }
 
 function getTaskList() { // ajax GET function
     $.ajax({
-        type:'GET',
+        method:'GET',
         url: '/task'
     }).then(function (response) {
         console.log(response);

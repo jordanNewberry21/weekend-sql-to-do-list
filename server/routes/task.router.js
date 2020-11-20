@@ -16,6 +16,21 @@ router.get('/', (req, res) => {
       });
 })
 
+// POST route here for adding new task to DB
+router.post('/', (req, res) => {
+    let task = req.body; // req.body is POST object from client
+    console.log('adding task to list...', req.body);
+    let sqlText = `INSERT INTO tasks (task, task_completed)
+                    VALUES ($1, $2);`; // default status for task_completed should be false
+    pool.query(sqlText, [task.task, task.task_completed])
+        .then(result => {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log(`Error adding new task`, error);
+            res.sendStatus(500);
+          });
+})
+
 
 
 module.exports = router;
