@@ -4,10 +4,10 @@ const app = express();
 // bodyParser
 const bodyParser = require('body-parser');
 // task router
-//const taskRouter = require('./routes/task.router.js')
+const taskRouter = require('./routes/task.router.js')
 
 // bring in routes
-//app.use('/task', taskRouter)
+app.use('/task', taskRouter)
 
 // Telling bodyParser how to parse in data from client
 app.use(bodyParser.urlencoded({ extended: true }));
