@@ -1,3 +1,13 @@
+- [] INITIAL SETUP
+    - [] FILE STRUCTURE
+        - [] SERVER / PUBLIC FOLDERS
+        - [] SERVER.JS | - [] INDEX.HTML
+        - [] ROUTES FOLDER | - [] STYLES FOLDER / VENDORS FOLDER
+        - [] TASKROUTER.JS | - [] STYLE.CSS     |  - [] JQUERY FILE
+                             - [] BOOTSTRAP HERE? ---> OR HERE?
+
+
+
 - [] HTML
     - [] Page title & header `Weekend To-Do List`
     - [] Input field for string of Task
