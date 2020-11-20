@@ -1,18 +1,25 @@
+// express
 const express = require('express');
 const app = express();
-const port = 5000;
+// bodyParser
+const bodyParser = require('body-parser');
+// task router
+//const taskRouter = require('./routes/task.router.js')
 
+// bring in routes
+//app.use('/task', taskRouter)
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// Telling bodyParser how to parse in data from client
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Serve back static files by default
 app.use(express.static('server/public'));
 
 
-app.get('/', (req, res, next) =>{
-    res.send('Hello world');
-})
 
-
+// Start listening for requests on a specific port
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`App listening on port ${port}!`);
 });
