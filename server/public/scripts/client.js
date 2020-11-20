@@ -2,7 +2,23 @@ $(document).ready(readyNow);
 
 function readyNow() {
     console.log('JQ is loaded.');
+    $('#submitTaskBtn').on('click', handleSubmit);
+    $('#taskSpot').on('click', '.completeTaskBtn', completeTask);
+    $('#taskSpot').on('click', '.deleteTaskBtn', deleteTask);
     getTaskList();
+}
+
+function completeTask() {
+    console.log('in complete task button');
+}
+
+function deleteTask() {
+    console.log('in delete task button');
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    console.log('in submit task button');
 }
 
 function getTaskList() { // ajax GET function
@@ -18,7 +34,7 @@ function getTaskList() { // ajax GET function
 }
 
 function renderTaskList(tasks) {
-    // empty landing spot on refresh to avoid double-posting data
+    // empty landing spot on function call to avoid double-posting data
     $('#taskSpot').empty();
 
     // loop through table from DB
@@ -29,4 +45,6 @@ function renderTaskList(tasks) {
         $tr.append(`<td><button class="btn btn-danger deleteTaskBtn">Remove</button></td>`);
         $('#taskSpot').append($tr);
     }
+    // this method of appending seemed a little confusing at first
+    // but I think after actually writing it this way it feels much cleaner
 }
