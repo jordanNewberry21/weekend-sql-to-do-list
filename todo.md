@@ -1,19 +1,19 @@
 - [] INITIAL SETUP
-    - [] FILE STRUCTURE
-        - [] SERVER / PUBLIC FOLDERS
-        - [] SERVER.JS | - [] INDEX.HTML
-        - [] ROUTES FOLDER | - [] STYLES FOLDER / VENDORS FOLDER
-        - [] TASKROUTER.JS | - [] STYLE.CSS     |  - [] JQUERY FILE
+    - [x] FILE STRUCTURE
+        - [x] SERVER / PUBLIC FOLDERS
+        - [x] SERVER.JS | - [x] INDEX.HTML
+        - [x] ROUTES FOLDER | - [x] STYLES FOLDER / VENDORS FOLDER
+        - [x] TASKROUTER.JS | - [x] STYLE.CSS     |  - [x] JQUERY FILE
                              - [] BOOTSTRAP HERE? ---> OR HERE?
 
 
 
 - [] HTML
-    - [] Page title & header `Weekend To-Do List`
-    - [] Input field for string of Task
-    - [] create Task button
-    - [] create table to list tasks
-    - [] set up table to be appended with jQuery
+    - [x] Page title & header `Weekend To-Do List`
+    - [x] Input field for string of Task
+    - [x] create Task button
+    - [x] create table to list tasks
+    - [x] set up table to be appended with jQuery
 
 - [] CSS
     - [] gonna use bootstrap
@@ -23,20 +23,20 @@
     - [] probably gonna need some color classes
 
 - [] SQL
-    - [] create a db: `weekend-to-do-app`
-    - [] create a `database.sql` file for relevant SQL queries (create table etc..)
-    - [] install pg & set up `pool.js`
+    - [x] create a db: `weekend-to-do-app`
+    - [x] create a `database.sql` file for relevant SQL queries (create table etc..)
+    - [x] install pg & set up `pool.js`
 
 - [] SERVER
-    - [] install express & create routers to connect db
+    - [x] install express & create routers to connect db
     - [] inside of the router file(s) I need:
-        - [] GET route to grab task list from DB
+        - [x] GET route to grab task list from DB
         - [] POST route to add Task to list in DB
         - [] DELETE route to remove a task from the list in DB
         - [] PUT route to change a task from needing to be done to complete
 
 - [] CLIENT
-    - [] source in jQuery
+    - [x] source in jQuery
     - [] readyNow function
         - [] this is where I will put my click handlers for:
             - [] Task submit button
