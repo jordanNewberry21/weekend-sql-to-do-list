@@ -22,18 +22,18 @@
     - [] check out bootstrap modal alerts
     - [] probably gonna need some color classes
 
-- [] SQL
+- [x] SQL
     - [x] create a db: `weekend-to-do-app`
     - [x] create a `database.sql` file for relevant SQL queries (create table etc..)
     - [x] install pg & set up `pool.js`
 
-- [] SERVER
+- [x] SERVER
     - [x] install express & create routers to connect db
-    - [] inside of the router file(s) I need:
+    - [x] inside of the router file(s) I need:
         - [x] GET route to grab task list from DB
         - [x] POST route to add Task to list in DB
-        - [] DELETE route to remove a task from the list in DB
-        - [] PUT route to change a task from needing to be done to complete
+        - [x] DELETE route to remove a task from the list in DB
+        - [x] PUT route to change a task from needing to be done to complete
 
 - [] CLIENT
     - [x] source in jQuery
@@ -66,15 +66,15 @@
         - [x] call getTask function again
     - [] Complete task function:
         - [x] connected to complete task button
-        - [] ajax PUT route
-        - [] add sqlText to change status of task from completed: false to true
-            - [] get task by id
+        - [x] ajax PUT route
+        - [x] add sqlText to change status of task from completed: false to true
+            - [x] get task by id
         - [] after status is changed to true
             - [] container element should change background color from a dark color to green to visualize being complete
             - [] the complete task button should become inactive, and look crossed out or unusable
-    - [] Delete task function:
-        - [] connected to delete button
-        - [] ajax DELETE route
-            - [] target task by it's id
-            - [] sqlText to remove it from the table
-        - [] after task is delete call getTask function again
+    - [x] Delete task function:
+        - [x] connected to delete button
+        - [x] ajax DELETE route
+            - [x] target task by it's id
+            - [x] sqlText to remove it from the table
+        - [x] after task is delete call getTask function again
