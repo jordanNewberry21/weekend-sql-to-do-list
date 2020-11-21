@@ -9,7 +9,17 @@ function readyNow() {
 }
 
 function completeTask() {
-    console.log('in complete task button');
+    let taskId = $(this).closest('tr').data('id');
+    console.log(`in complete task button, changing complete status for task#: ${taskId}`);
+    $.ajax({
+        method: 'PUT',
+        url: `/task/${taskId}`
+    }).then(function (response) {
+        getTaskList();
+      }).catch(function (error) {
+        console.log('Error...', error);
+        alert('Something went wrong. Please try again.');
+      });
 }
 
 function deleteTask() {
