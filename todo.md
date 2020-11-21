@@ -46,24 +46,24 @@
         - [x] ajax GET route
         - [x] after data grab from db call render function
         - [x] call this function inside readyNow to load data on page start
-    - [] Render function:
+    - [x] Render function:
         - [x] calls data array as parameter
         - [x] array goes into a for loop
         - [x] for loop appends the task data to my html table
             - [x] this should also dynamically append to each task
                 - [x] a DELETE button
                 - [x] a COMPLETE button
-    - [] handleTask? function:
+    - [x] handleTask? function:
         - [x] connected to submit Task button
-        - [] grabs the string from the task input field
-        - [] store it in an object with two values:
-            - [] the string task itself
-            - [] and a default value of completed: false
-         - [] call function to send task to the server
-    - [] sendTaskToSever function:
-        - [] ajax POST route
-        - [] after POST is sent, clear the input field here
-        - [] call getTask function again
+        - [x] grabs the string from the task input field
+        - [x] store it in an object with two values:
+            - [x] the string task itself
+            - [x] and a default value of completed: false
+         - [x] call function to send task to the server
+    - [x] sendTaskToSever function:
+        - [x] ajax POST route
+        - [x] after POST is sent, clear the input field here
+        - [x] call getTask function again
     - [] Complete task function:
         - [] connected to complete task button
         - [] ajax PUT route
