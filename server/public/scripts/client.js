@@ -2,20 +2,20 @@ $(document).ready(readyNow);
 
 function readyNow() {
     console.log('JQ is loaded.');
-    $('#submitTaskBtn').on('click', handleSubmit);
+    $('#submitTaskBtn').on('click', handleSubmit); // click handlers
     $('#taskSpot').on('click', '.completeTaskBtn', completeTask);
     $('#taskSpot').on('click', '.deleteTaskBtn', deleteTask);
-    getTaskList();
+    getTaskList(); // getting data table on page load
 }
 
 function completeTask() {
-    let taskId = $(this).closest('tr').data('id');
+    let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
     console.log(`in complete task button, changing complete status for task#: ${taskId}`);
     $.ajax({
         method: 'PUT',
-        url: `/task/${taskId}`
+        url: `/task/${taskId}` // setting the url for the PUT route to match up with the unique taskId
     }).then(function (response) {
-        getTaskList();
+        getTaskList(); // calling function to GET data again
       }).catch(function (error) {
         console.log('Error...', error);
         alert('Something went wrong. Please try again.');
@@ -23,20 +23,28 @@ function completeTask() {
 }
 
 function deleteTask() {
-    console.log('in delete task button');
+    let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
+    console.log(`in delete task button, deleting task#: ${taskId}`);
+    $.ajax({
+        method: 'DELETE',
+        url: `/task/${taskId}` // setting the url for the DELETE route to match up with the unique taskId
+    }).then(function (response) {
+        getTaskList(); // calling function to GET data again
+      }).catch(function (error) {
+        console.log('Error...', error);
+        alert('Something went wrong. Please try again.');
+      });
 }
 
 function handleSubmit(event) {
     event.preventDefault();
     console.log('in submit task button');
-    let task = {
+    let task = { // creating new task object with default value of false for task_completed
         task: $('#taskString').val(),
         task_completed: false
-    }; // creating new task object
-    // task.task = $('#taskString').val();
-    // task.task_completed = false;
+    }; 
 
-    addToTaskList(task);
+    addToTaskList(task); // sending new task to server via ajax
 }
 
 function addToTaskList(taskToAdd) {
@@ -44,10 +52,10 @@ function addToTaskList(taskToAdd) {
     $.ajax({
         method: 'POST',
         url: '/task',
-        data: taskToAdd
+        data: taskToAdd // sending new task data object to the server to be added to the DB
     }).then(function (response) {
         console.log('response from server', response);
-        getTaskList();
+        getTaskList(); // getting new data from server
     }).catch(function (error) {
         console.log('Error in POST', error)
         alert('Unable to add task at this time. Please try again later.');
@@ -57,7 +65,7 @@ function addToTaskList(taskToAdd) {
 function getTaskList() { // ajax GET function
     $.ajax({
         method:'GET',
-        url: '/task'
+        url: '/task' // setting the url for data transactions
     }).then(function (response) {
         console.log(response);
         renderTaskList(response); // call render with response from server
