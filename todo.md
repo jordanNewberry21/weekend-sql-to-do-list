@@ -31,7 +31,7 @@
     - [x] install express & create routers to connect db
     - [] inside of the router file(s) I need:
         - [x] GET route to grab task list from DB
-        - [] POST route to add Task to list in DB
+        - [x] POST route to add Task to list in DB
         - [] DELETE route to remove a task from the list in DB
         - [] PUT route to change a task from needing to be done to complete
 
@@ -65,7 +65,7 @@
         - [x] after POST is sent, clear the input field here
         - [x] call getTask function again
     - [] Complete task function:
-        - [] connected to complete task button
+        - [x] connected to complete task button
         - [] ajax PUT route
         - [] add sqlText to change status of task from completed: false to true
             - [] get task by id
