@@ -8,7 +8,8 @@ function readyNow() {
     getTaskList(); // getting data table on page load
 }
 
-function completeTask() {
+function completeTask(event) {
+    event.preventDefault();
     let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
     console.log(`in complete task button, changing complete status for task#: ${taskId}`);
     $.ajax({
@@ -21,6 +22,7 @@ function completeTask() {
         alert('Something went wrong. Please try again.');
       });
 }
+
 
 function deleteTask() {
     let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
@@ -54,6 +56,7 @@ function addToTaskList(taskToAdd) {
         url: '/task',
         data: taskToAdd // sending new task data object to the server to be added to the DB
     }).then(function (response) {
+        $('#taskString').val('');
         console.log('response from server', response);
         getTaskList(); // getting new data from server
     }).catch(function (error) {
@@ -81,10 +84,15 @@ function renderTaskList(tasks) {
     // loop through table from DB
     for (let task of tasks) {
         let $tr = $(`<tr data-id=${task.id}></tr>`);
+        $tr.data('task', task);
         $tr.append(`<td>${task.task}</td>`);
-        $tr.append(`<td><button class="btn btn-primary completeTaskBtn">Completed</button></td>`);
+        $tr.append(`<td><button class="btn btn-primary completeTaskBtn" data-complete=${task.task_completed}>Completed</button></td>`);
         $tr.append(`<td><button class="btn btn-danger deleteTaskBtn">Remove</button></td>`);
         $('#taskSpot').append($tr);
+        console.log(task.task_completed);
+        if (task.task_completed == true) {
+            $tr.addClass('green');
+         }
     }
     // this method of appending seemed a little confusing at first
     // but I think after actually writing it this way it feels much cleaner
