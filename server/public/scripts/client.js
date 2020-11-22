@@ -10,6 +10,7 @@ function readyNow() {
 
 function completeTask(event) {
     event.preventDefault();
+    
     let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
     console.log(`in complete task button, changing complete status for task#: ${taskId}`);
     $.ajax({
@@ -86,13 +87,14 @@ function renderTaskList(tasks) {
         let $tr = $(`<tr data-id=${task.id}></tr>`);
         $tr.data('task', task);
         $tr.append(`<td>${task.task}</td>`);
-        $tr.append(`<td><button class="btn btn-primary completeTaskBtn" data-complete=${task.task_completed}>Completed</button></td>`);
+        $tr.append(`<td><button id=${task.id} class="btn btn-primary completeTaskBtn" data-complete=${task.task_completed}>Completed</button></td>`);
         $tr.append(`<td><button class="btn btn-danger deleteTaskBtn">Remove</button></td>`);
         $('#taskSpot').append($tr);
         console.log(task.task_completed);
-        if (task.task_completed == true) {
-            $tr.addClass('green');
-         }
+        if (task.task_completed === true) { // conditional specific to each task
+            $tr.addClass('green'); // adds a green class to the table row to show a complete status
+            $(`#${task.id}`).attr('disabled',true); // disables completeTaskBtn for tasks that are complete
+        }
     }
     // this method of appending seemed a little confusing at first
     // but I think after actually writing it this way it feels much cleaner
