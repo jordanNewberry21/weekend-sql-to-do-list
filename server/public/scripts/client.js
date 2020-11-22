@@ -98,4 +98,7 @@ function renderTaskList(tasks) {
     }
     // this method of appending seemed a little confusing at first
     // but I think after actually writing it this way it feels much cleaner
+    // that being said I think it is a little trickier to visualize how things are being appended
+    // when doing it this way. I ran into a little trouble trying to change the background color
+    // and disabling the button.
 }
