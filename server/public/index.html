@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekend To-Do List</title>
+    <script src="vendors/jquery.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
     <header>
@@ -15,8 +19,21 @@
         <form>
             <label>Task:</label>
             <input type="text" id="taskString" placeholder="What's on the list?">
-            <button id="submitTaskBtn">Add Task</button>
+            
+            <button class="btn btn-success" id="submitTaskBtn">Add Task</button>
         </form>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Task List</th>
+                    <th>Complete Task</th>
+                    <th>Delete Task</th>
+                </tr>
+            </thead>
+            <tbody id="taskSpot">
+                <!--jQuery will fill this in-->
+            </tbody>
+        </table>
     </main>
 </body>
 </html>

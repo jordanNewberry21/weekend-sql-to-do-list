@@ -1,19 +1,19 @@
 - [] INITIAL SETUP
-    - [] FILE STRUCTURE
-        - [] SERVER / PUBLIC FOLDERS
-        - [] SERVER.JS | - [] INDEX.HTML
-        - [] ROUTES FOLDER | - [] STYLES FOLDER / VENDORS FOLDER
-        - [] TASKROUTER.JS | - [] STYLE.CSS     |  - [] JQUERY FILE
+    - [x] FILE STRUCTURE
+        - [x] SERVER / PUBLIC FOLDERS
+        - [x] SERVER.JS | - [x] INDEX.HTML
+        - [x] ROUTES FOLDER | - [x] STYLES FOLDER / VENDORS FOLDER
+        - [x] TASKROUTER.JS | - [x] STYLE.CSS     |  - [x] JQUERY FILE
                              - [] BOOTSTRAP HERE? ---> OR HERE?
 
 
 
 - [] HTML
-    - [] Page title & header `Weekend To-Do List`
-    - [] Input field for string of Task
-    - [] create Task button
-    - [] create table to list tasks
-    - [] set up table to be appended with jQuery
+    - [x] Page title & header `Weekend To-Do List`
+    - [x] Input field for string of Task
+    - [x] create Task button
+    - [x] create table to list tasks
+    - [x] set up table to be appended with jQuery
 
 - [] CSS
     - [] gonna use bootstrap
@@ -22,59 +22,59 @@
     - [] check out bootstrap modal alerts
     - [] probably gonna need some color classes
 
-- [] SQL
-    - [] create a db: `weekend-to-do-app`
-    - [] create a `database.sql` file for relevant SQL queries (create table etc..)
-    - [] install pg & set up `pool.js`
+- [x] SQL
+    - [x] create a db: `weekend-to-do-app`
+    - [x] create a `database.sql` file for relevant SQL queries (create table etc..)
+    - [x] install pg & set up `pool.js`
 
-- [] SERVER
-    - [] install express & create routers to connect db
-    - [] inside of the router file(s) I need:
-        - [] GET route to grab task list from DB
-        - [] POST route to add Task to list in DB
-        - [] DELETE route to remove a task from the list in DB
-        - [] PUT route to change a task from needing to be done to complete
+- [x] SERVER
+    - [x] install express & create routers to connect db
+    - [x] inside of the router file(s) I need:
+        - [x] GET route to grab task list from DB
+        - [x] POST route to add Task to list in DB
+        - [x] DELETE route to remove a task from the list in DB
+        - [x] PUT route to change a task from needing to be done to complete
 
 - [] CLIENT
-    - [] source in jQuery
-    - [] readyNow function
-        - [] this is where I will put my click handlers for:
-            - [] Task submit button
-            - [] Task complete button
-            - [] Task delete button
-    - [] getTask function:
-        - [] ajax GET route
-        - [] after data grab from db call render function
-        - [] call this function inside readyNow to load data on page start
-    - [] Render function:
-        - [] calls data array as parameter
-        - [] array goes into a for loop
-        - [] for loop appends the task data to my html table
-            - [] this should also dynamically append to each task
-                - [] a DELETE button
-                - [] a COMPLETE button
-    - [] handleTask? function:
-        - [] connected to submit Task button
-        - [] grabs the string from the task input field
-        - [] store it in an object with two values:
-            - [] the string task itself
-            - [] and a default value of completed: false
-         - [] call function to send task to the server
-    - [] sendTaskToSever function:
-        - [] ajax POST route
-        - [] after POST is sent, clear the input field here
-        - [] call getTask function again
+    - [x] source in jQuery
+    - [x] readyNow function
+        - [x] this is where I will put my click handlers for:
+            - [x] Task submit button
+            - [x] Task complete button
+            - [x] Task delete button
+    - [x] getTask function:
+        - [x] ajax GET route
+        - [x] after data grab from db call render function
+        - [x] call this function inside readyNow to load data on page start
+    - [x] Render function:
+        - [x] calls data array as parameter
+        - [x] array goes into a for loop
+        - [x] for loop appends the task data to my html table
+            - [x] this should also dynamically append to each task
+                - [x] a DELETE button
+                - [x] a COMPLETE button
+    - [x] handleTask? function:
+        - [x] connected to submit Task button
+        - [x] grabs the string from the task input field
+        - [x] store it in an object with two values:
+            - [x] the string task itself
+            - [x] and a default value of completed: false
+         - [x] call function to send task to the server
+    - [x] sendTaskToSever function:
+        - [x] ajax POST route
+        - [x] after POST is sent, clear the input field here
+        - [x] call getTask function again
     - [] Complete task function:
-        - [] connected to complete task button
-        - [] ajax PUT route
-        - [] add sqlText to change status of task from completed: false to true
-            - [] get task by id
+        - [x] connected to complete task button
+        - [x] ajax PUT route
+        - [x] add sqlText to change status of task from completed: false to true
+            - [x] get task by id
         - [] after status is changed to true
             - [] container element should change background color from a dark color to green to visualize being complete
             - [] the complete task button should become inactive, and look crossed out or unusable
-    - [] Delete task function:
-        - [] connected to delete button
-        - [] ajax DELETE route
-            - [] target task by it's id
-            - [] sqlText to remove it from the table
-        - [] after task is delete call getTask function again
+    - [x] Delete task function:
+        - [x] connected to delete button
+        - [x] ajax DELETE route
+            - [x] target task by it's id
+            - [x] sqlText to remove it from the table
+        - [x] after task is delete call getTask function again
