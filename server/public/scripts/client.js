@@ -87,12 +87,12 @@ function renderTaskList(tasks) {
         let $tr = $(`<tr data-id=${task.id}></tr>`);
         $tr.data('task', task);
         $tr.append(`<td>${task.task}</td>`);
-        $tr.append(`<td><button id=${task.id} class="btn btn-primary completeTaskBtn" data-complete=${task.task_completed}>Completed</button></td>`);
-        $tr.append(`<td><button class="btn btn-danger deleteTaskBtn">Remove</button></td>`);
+        $tr.append(`<td><button id=${task.id} class="btn btn-sm btn-primary completeTaskBtn" data-complete=${task.task_completed}>Completed</button></td>`);
+        $tr.append(`<td><button class="btn btn-sm btn-danger deleteTaskBtn">Remove</button></td>`);
         $('#taskSpot').append($tr);
         console.log(task.task_completed);
         if (task.task_completed === true) { // conditional specific to each task
-            $tr.addClass('green'); // adds a green class to the table row to show a complete status
+            $tr.addClass('greenBackground_OVERRIDE'); // adds a green class to the table row to show a complete status
             $(`#${task.id}`).attr('disabled',true); // disables completeTaskBtn for tasks that are complete
         }
     }
