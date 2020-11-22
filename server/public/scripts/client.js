@@ -10,7 +10,7 @@ function readyNow() {
 
 function completeTask(event) {
     event.preventDefault();
-    
+
     let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
     console.log(`in complete task button, changing complete status for task#: ${taskId}`);
     $.ajax({
@@ -18,25 +18,39 @@ function completeTask(event) {
         url: `/task/${taskId}` // setting the url for the PUT route to match up with the unique taskId
     }).then(function (response) {
         getTaskList(); // calling function to GET data again
-      }).catch(function (error) {
+    }).catch(function (error) {
         console.log('Error...', error);
         alert('Something went wrong. Please try again.');
-      });
+    });
 }
 
 
 function deleteTask() {
     let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
     console.log(`in delete task button, deleting task#: ${taskId}`);
-    $.ajax({
-        method: 'DELETE',
-        url: `/task/${taskId}` // setting the url for the DELETE route to match up with the unique taskId
-    }).then(function (response) {
-        getTaskList(); // calling function to GET data again
-      }).catch(function (error) {
-        console.log('Error...', error);
-        alert('Something went wrong. Please try again.');
-      });
+    Swal.fire({
+        title: 'Did you finish this task?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: `Yes`
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire('Task Removed!', '', 'success')
+            $.ajax({
+                method: 'DELETE',
+                url: `/task/${taskId}` // setting the url for the DELETE route to match up with the unique taskId
+            }).then(function (response) {
+                getTaskList(); // calling function to GET data again
+            }).catch(function (error) {
+                console.log('Error...', error);
+                alert('Something went wrong. Please try again.');
+            });
+        } else if (result.isDenied) {
+            Swal.fire('That\'s okay', '', 'info')
+        }
+    });
+   
 }
 
 function handleSubmit(event) {
@@ -45,7 +59,7 @@ function handleSubmit(event) {
     let task = { // creating new task object with default value of false for task_completed
         task: $('#taskString').val(),
         task_completed: false
-    }; 
+    };
 
     addToTaskList(task); // sending new task to server via ajax
 }
@@ -63,12 +77,12 @@ function addToTaskList(taskToAdd) {
     }).catch(function (error) {
         console.log('Error in POST', error)
         alert('Unable to add task at this time. Please try again later.');
-      });
+    });
 }
 
 function getTaskList() { // ajax GET function
     $.ajax({
-        method:'GET',
+        method: 'GET',
         url: '/task' // setting the url for data transactions
     }).then(function (response) {
         console.log(response);
@@ -93,7 +107,7 @@ function renderTaskList(tasks) {
         console.log(task.task_completed);
         if (task.task_completed === true) { // conditional specific to each task
             $tr.addClass('greenBackground_OVERRIDE'); // adds a green class to the table row to show a complete status
-            $(`#${task.id}`).attr('disabled',true); // disables completeTaskBtn for tasks that are complete
+            $(`#${task.id}`).attr('disabled', true); // disables completeTaskBtn for tasks that are complete
         }
     }
     // this method of appending seemed a little confusing at first

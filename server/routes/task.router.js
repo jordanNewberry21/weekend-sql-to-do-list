@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 // Get Task list from SQL DB
 router.get('/', (req, res) => {
-    let sqlText = `SELECT * FROM tasks ORDER BY id;`;
+    let sqlText = `SELECT * FROM tasks ORDER BY task_completed;`;
     pool.query(sqlText).then(result => {
         console.log(result.rows);
         // Sends back the results in an object
