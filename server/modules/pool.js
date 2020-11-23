@@ -1,13 +1,25 @@
 const pg = require('pg');
+let config = {};
 
-const config = {
-  database: 'weekend-to-do-app', 
-  host: 'localhost', 
-  port: 5432, 
-  max: 10, 
-  idleTimeoutMillis: 30000 
+if (process.env.DATABASE_URL) {
+  config = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthenticated: false
+    }
+  }
+} else {
+
+  config = {
+    database: 'weekend-to-do-app',
+    host: 'localhost',
+    port: 5432,
+    max: 10,
+    idleTimeoutMillis: 30000
+  }
 };
 
+// Create the pool with the proper config
 const pool = new pg.Pool(config);
 
 pool.on("connect", () => {
