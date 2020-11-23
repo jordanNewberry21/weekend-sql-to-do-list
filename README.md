@@ -16,6 +16,8 @@ I wanted to create an app to display my grasp of server and database routes and 
 This app functions exactly how an analog to-do list would. There is an input field near the top of the page where you enter in whatever task you want to get done over the weekend.
 Hit `Enter` and your task is logged to the list right away. Once you get done with a task, to "cross it off" your list, just hit the complete button, and this task will be automatically moved to the bottom of your list. And when you are ready you can click the "Remove" button on the page to remove the task from your list.
 
+Check out the deployed version of my app on Heroku! [WeekendTodo](http://shielded-wave-13982.herokuapp.com/)
+
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
