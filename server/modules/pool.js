@@ -5,7 +5,7 @@ if (process.env.DATABASE_URL) {
   config = {
     connectionString: process.env.DATABASE_URL,
     ssl: {
-      rejectUnauthenticated: false
+      rejectUnauthorized: false
     }
   }
 } else {
