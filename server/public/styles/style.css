@@ -3,8 +3,9 @@ html {
     min-height: 100%;
 }
 
-.greenBackground_OVERRIDE {
-    background-color: forestgreen !important;
+tr.background_OVERRIDE {
+    background-color: #BEA8A7;
+    color: #2A0800;
 }
 
 body {
@@ -46,15 +47,15 @@ th {
     color: #F4DBD8;
 }
 
-tr:nth-child(odd) {
+tr {
     background-color: #F4DBD8;
     color: #2A0800;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: #BEA8A7;
     color: #2A0800;
-}
+} */
 
 .footer {
     position: absolute;

@@ -106,7 +106,7 @@ function renderTaskList(tasks) {
         $('#taskSpot').append($tr);
         console.log(task.task_completed);
         if (task.task_completed === true) { // conditional specific to each task
-            $tr.addClass('greenBackground_OVERRIDE'); // adds a green class to the table row to show a complete status
+            $tr.addClass('background_OVERRIDE'); // adds a green class to the table row to show a complete status
             $(`#${task.id}`).attr('disabled', true); // disables completeTaskBtn for tasks that are complete
         }
     }
