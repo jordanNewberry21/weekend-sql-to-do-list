@@ -5,7 +5,7 @@ function readyNow() {
     $('#submitTaskBtn').on('click', handleSubmit); // click handlers
     $('#taskSpot').on('click', '.completeTaskBtn', completeTask);
     $('#taskSpot').on('click', '.deleteTaskBtn', deleteTask);
-    $('#taskSpot').on('click', '.updateTaskTextBtn', updateTaskText);
+    $('#taskSpot').on('click', '.updateTaskTextBtn', editTaskMode);
     getTaskList(); // getting data table on page load
 }
 
@@ -24,23 +24,6 @@ function completeTask(event) {
         alert('Something went wrong. Please try again.');
     });
 }
-
-function updateTaskText(event) {
-    event.preventDefault();
-    console.log('button is being clicked')
-    // const taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
-    // console.log(`in complete task button, changing complete status for task#: ${taskId}`);
-    // $.ajax({
-    //     method: 'PUT',
-    //     url: `/task/${taskId}` // setting the url for the PUT route to match up with the unique taskId
-    // }).then(function (response) {
-    //     getTaskList(); // calling function to GET data again
-    // }).catch(function (error) {
-    //     console.log('Error...', error);
-    //     alert('Something went wrong. Please try again.');
-    // });
-}
-
 
 function deleteTask() {
     let taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
@@ -117,7 +100,7 @@ function renderTaskList(tasks) {
     for (let task of tasks) {
         let $tr = $(`<tr data-id=${task.id}></tr>`);
         $tr.data('task', task);
-        $tr.append(`<td>${task.task}</td>`);
+        $tr.append(`<td id="taskText">${task.task}</td>`);
         $tr.append(`<td><button id=${task.id} class="btn btn-sm btn-primary completeTaskBtn" data-complete=${task.task_completed}>Completed</button></td>`);
         $tr.append(`<td><button class="btn btn-sm btn-danger deleteTaskBtn">Remove</button></td>`);
         $tr.append(`<td><button class="btn btn-sm btn-success updateTaskTextBtn">Edit</button></td>`);

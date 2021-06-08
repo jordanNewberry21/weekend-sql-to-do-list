@@ -52,11 +52,6 @@ tr {
     color: #2A0800;
 }
 
-/* tr:nth-child(even) {
-    background-color: #BEA8A7;
-    color: #2A0800;
-} */
-
 .footer {
     position: absolute;
     bottom: 0;
