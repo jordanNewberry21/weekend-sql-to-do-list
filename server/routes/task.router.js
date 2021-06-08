@@ -47,6 +47,22 @@ router.put('/:id', (req, res) => {
         });
 })
 
+// PUT route for editing text of the task
+router.put('/:id', (req, res) => {
+    const updatedTaskText = req.body;
+    const id = req.params.id;
+    console.log(`Updating task description at id: ${id}`);
+    const sqlText = `UPDATE tasks SET task=$1 WHERE id=$2;`
+    // query the DB
+    pool.query(sqlText, [updatedTaskText, id])
+        .then((result) => {
+            res.sendStatus(201);
+        }).catch((error) => {
+            console.log('Error from db: ', error);
+            res.sendStatus(500);
+        })
+})
+
 // DELETE route for removing tasks from data table
 router.delete('/:id', (req, res) => {
     let id = req.params.id; // id of task to delete, coming in from the client via ajax function
