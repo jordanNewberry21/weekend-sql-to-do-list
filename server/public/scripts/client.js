@@ -5,6 +5,7 @@ function readyNow() {
     $('#submitTaskBtn').on('click', handleSubmit); // click handlers
     $('#taskSpot').on('click', '.completeTaskBtn', completeTask);
     $('#taskSpot').on('click', '.deleteTaskBtn', deleteTask);
+    $('#taskSpot').on('click', '.updateTaskTextBtn', updateTaskText);
     getTaskList(); // getting data table on page load
 }
 
@@ -22,6 +23,22 @@ function completeTask(event) {
         console.log('Error...', error);
         alert('Something went wrong. Please try again.');
     });
+}
+
+function updateTaskText(event) {
+    event.preventDefault();
+    console.log('button is being clicked')
+    // const taskId = $(this).closest('tr').data('id'); // targeting the data id from table row
+    // console.log(`in complete task button, changing complete status for task#: ${taskId}`);
+    // $.ajax({
+    //     method: 'PUT',
+    //     url: `/task/${taskId}` // setting the url for the PUT route to match up with the unique taskId
+    // }).then(function (response) {
+    //     getTaskList(); // calling function to GET data again
+    // }).catch(function (error) {
+    //     console.log('Error...', error);
+    //     alert('Something went wrong. Please try again.');
+    // });
 }
 
 
@@ -103,8 +120,8 @@ function renderTaskList(tasks) {
         $tr.append(`<td>${task.task}</td>`);
         $tr.append(`<td><button id=${task.id} class="btn btn-sm btn-primary completeTaskBtn" data-complete=${task.task_completed}>Completed</button></td>`);
         $tr.append(`<td><button class="btn btn-sm btn-danger deleteTaskBtn">Remove</button></td>`);
+        $tr.append(`<td><button class="btn btn-sm btn-success updateTaskTextBtn">Edit</button></td>`);
         $('#taskSpot').append($tr);
-        console.log(task.task_completed);
         if (task.task_completed === true) { // conditional specific to each task
             $tr.addClass('background_OVERRIDE'); // adds a green class to the table row to show a complete status
             $(`#${task.id}`).attr('disabled', true); // disables completeTaskBtn for tasks that are complete
