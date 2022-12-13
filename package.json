@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/jordanNewberry21/weekend-sql-to-do-list#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.5.1",
     "pg": "^8.5.1",
     "sweetalert2": "^10.10.1"
